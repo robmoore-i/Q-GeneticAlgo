@@ -141,3 +141,11 @@ expression evaluation fitness
 ..
 q)
 ```
+
+And an example of what a random binary chromosome looks like:
+
+```
+q)randomChromosome[]
+0 1 1 0 0 0 1 0 1 1 0 0 0 0 1 1 1 0 1 1 1 0 0 1 0 0 1 1
+q)
+```

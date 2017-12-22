@@ -1,7 +1,7 @@
 \l ga.q
 
 // Generates a random chromosome for this problem.
-randomchromosome:{raze {$[4>c:count x;((4-c)#0),x;x]} each 2 vs/: 7?14}
+randomChromosome:{raze {$[4>c:count x;((4-c)#0),x;x]} each 2 vs/: 7?14}
 
 phenotypes:(0;1;2;3;4;5;6;7;8;9;+;-;*;%;::;::)
 generateSymbols:{(phenotypes@/:2 sv/: 4 cut x) except (::)}
@@ -26,7 +26,7 @@ showPopulationPerformance:{[g;p]
 // table of chromosomes which produce expressions whose executed value is as
 // close to g as possible.
 findExpr:{[crsRate;mutRate;iMax;n;g]
-  p:randomchromosome each n#0;
+  p:randomChromosome each n#0;
   chromosomes:evolve[crsRate;mutRate;executechromosome;scoreFitness;g;iMax;p];
   showPopulationPerformance[g;chromosomes]}
 
