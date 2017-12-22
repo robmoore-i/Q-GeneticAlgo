@@ -1,21 +1,21 @@
 \l ga.q
 
-// Generates a random chromasome for this problem.
-randomChromasome:{raze {$[4>c:count x;((4-c)#0),x;x]} each 2 vs/: 7?14}
+// Generates a random chromosome for this problem.
+randomchromosome:{raze {$[4>c:count x;((4-c)#0),x;x]} each 2 vs/: 7?14}
 
 phenotypes:(0;1;2;3;4;5;6;7;8;9;+;-;*;%;::;::)
 generateSymbols:{(phenotypes@/:2 sv/: 4 cut x) except (::)}
-// Executes a chromasome's instructions to get an output for this problem.
-executeChromasome:{
+// Executes a chromosome's instructions to get an output for this problem.
+executechromosome:{
   $[-7h<>type res:@[{eval parse raze string generateSymbols x};x;0N];0N;res]}
 
 // Assesses the fitness of an execution, given a goal
 scoreFitness:{[goal;attempt]$[attempt~0N;0f;1+reciprocal abs goal-attempt]}
 
 // Given a goal g for population p, produces a nice table showing the parsed
-// expression from each chromasome, its executed value and its fitness.
+// expression from each chromosome, its executed value and its fitness.
 showPopulationPerformance:{[g;p]
-  ex:executeChromasome each p;
+  ex:executechromosome each p;
   ([]
     expression:{raze string generateSymbols x} each p;
     evaluation:ex;
@@ -23,10 +23,10 @@ showPopulationPerformance:{[g;p]
 
 // For a goal g, a crsRate, mutRate, the size of the initial population n,
 // and the maximum number of iterations/generations to search for iMax, produces a
-// table of chromasomes which produce expressions whose executed value is as
+// table of chromosomes which produce expressions whose executed value is as
 // close to g as possible.
 findExpr:{[crsRate;mutRate;iMax;n;g]
-  p:randomChromasome each n#0;
-  chromasomes:evolve[crsRate;mutRate;executeChromasome;scoreFitness;g;iMax;p];
-  showPopulationPerformance[g;chromasomes]}
+  p:randomchromosome each n#0;
+  chromosomes:evolve[crsRate;mutRate;executechromosome;scoreFitness;g;iMax;p];
+  showPopulationPerformance[g;chromosomes]}
 
