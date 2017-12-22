@@ -84,6 +84,9 @@ you are looking for.
 scoreFitness:{[goal;attempt]...} where goal is some goal value and attempt is
 some attempt at producing that goal. It must return a float as its given score.
 
+By running ./build.sh the ga.q file will be moved into your QHOME (it does all the
+appropriate checks first) so you can load it from any q program you're running by
+doing `\l ga.q`.
 
 ## Example - exprFinder.q
 
