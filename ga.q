@@ -40,4 +40,4 @@ nextGeneration:{[crsRate;mutRate;goal;execute;fitness;generation]
 // many and returns the resulting chromosomes.
 evolve:{[crsRate;mutRate;execute;fitness;goal;iters;p]
   gen:nextGeneration[crsRate;mutRate;goal;execute;fitness;];
-  .[{y x/ z}[gen;;];(iters;p);(::)]}
+  .[{y x/ z}[gen;;];(iters;p);'extinct]}
