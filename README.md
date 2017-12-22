@@ -87,6 +87,12 @@ some attempt at producing that goal. It must return a float as its given score.
 
 ## Example - exprFinder.q
 
+The problem is to find a sequence of 7 symbols which, when parsed and
+evaluated, produce some target number. Symbols can be 0-9 or +, -, *, %
+
+If our target was 23, an example solution would be
+"14+3*03" = 14+3*3 = 14+9 = 23.
+
 If you look in exprFinder.q the required functions from the usage section above
 are defined, as well as another function for tabulating the returned chromosomes
 to help present more clearly the results.
