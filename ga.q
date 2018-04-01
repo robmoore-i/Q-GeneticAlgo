@@ -30,7 +30,7 @@ nextGeneration:{[crsRate;mutRate;goal;execute;fitness;generation]
   cutoff:med fitv;
   if[cutoff=0w;:generation];
   survivors:generation where fitv>cutoff;
-  if[0=count survivors;'extinct];
+  if[0=count survivors;:generation];
   irradiate[mutRate;] each survivors,procreate[crsRate;survivors]}
 
 // Given an initial population p, a goal, a crsRate, a mutRate,
